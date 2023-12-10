@@ -76,6 +76,12 @@ gdp_SSP2EU_NAV_lce "NAVIGATE demand scenarios: Low consumption energy (act + tec
 gdp_SSP2EU_NAV_all "NAVIGATE demand scenarios: All measures (ele + act + tec)"
 gdp_SSP2EU_CAMP_weak   "CAMPAIGNers scenario with low ambition lifestyle change"
 gdp_SSP2EU_CAMP_strong "CAMPAIGNers scenario with high ambition lifestyle change"
+gdp_SSP2EU_CAMP_strong_temperature "CAMPAIGNers scenario with high ambition lifestyle change (only set-point temperature adjustment)"
+gdp_SSP2EU_CAMP_strong_renovation  "CAMPAIGNers scenario with high ambition lifestyle change (only increased renovation)"
+gdp_SSP2EU_CAMP_strong_floorspace  "CAMPAIGNers scenario with high ambition lifestyle change (only floor space caps)"
+gdp_SSP2EU_CAMP_strong_hotwater    "CAMPAIGNers scenario with high ambition lifestyle change (only hot water conservation)"
+gdp_SSP2EU_CAMP_strong_ecomode     "CAMPAIGNers scenario with high ambition lifestyle change (only eco mode usage)"
+gdp_SSP2EU_CAMP_strong_all         "CAMPAIGNers scenario with high ambition lifestyle change (all buildings lsc but none in transport)"
 gdp_SSP2EU_demRedWeak
 /
 
