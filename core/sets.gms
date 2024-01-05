@@ -506,24 +506,6 @@ all_esty "energy services"
     esh2t_frgt_sm
     esgat_frgt_sm
 
-*** Buildings module: Energy services (useful energy)
-    ueshheb  "buildings space heating district heat"
-    ueshhob  "buildings space heating liquids"
-    ueshsob  "buildings space heating solids"
-    ueshstb  "buildings space heating traditional solids"
-    ueshgab  "buildings space heating district heat"
-    ueshh2b  "buildings space heating hydrogen"
-    ueshelb  "buildings space heating electricity resistance"
-    ueshhpb  "buildings space heating electricity heat pump"
-
-    uecwhob  "buildings cooking and water heating liquids"
-    uecwsob  "buildings cooking and water heating solids"
-    uecwstb  "buildings cooking and water heating traditional solids"
-    uecwgab  "buildings cooking and water heating gas"
-    uecwheb  "buildings cooking and water heating district heat"
-    uecwh2b  "buildings cooking and water heating hydrogen"
-    uecwelb  "buildings cooking and water heating electricity"
-    uecwhpb  "buildings cooking and water heating heat pump"
 /
 
 all_sectorEmi     "all sectors with emissions"
@@ -584,36 +566,6 @@ all_in   "all inputs and outputs of the CES function"
   fehei                   "industry use of district heat"
   feeli                   "industry use of electricity"
 
-  fehcsob                 "buildings heating and cooking solids final energy"
-  fehcelb                 "buildings heating and cooking electricity final energy"
-  fehcheb                 "buildings heating and cooking district heat final energy"
-  fehcgab                 "buildings heating and cooking gas final energy"
-  fehchob                 "buildings heating and cooking liquids final energy"
-  fealelb                 "buildings appliances and light electricity final energy"
-  fecwsob                 "buildings cooking and water heating solids final energy"
-  fecwelb                 "buildings cooking and water heating electricity final energy"
-  fecwhpb                 "buildings cooking and water heating electricity heat pump final energy"
-  fecwheb                 "buildings cooking and water heating district heat final energy"
-  fecwgab                 "buildings cooking and water heating gas final energy"
-  fecwhob                 "buildings cooking and water heating liquids final energy"
-  fescelb                 "buildings space cooling electricity final energy"
-  feshsob                 "buildings space heating solids final energy"
-  feshelb                 "buildings space heating electricity final energy"
-  feshheb                 "buildings space heating district heat final energy"
-  feshgab                 "buildings space heating gas final energy"
-  feshhob                 "buildings space heating liquids final energy"
-  feshhpb                 "buildings space heating electricity heat pump final energy"
-
-  esswb                   "buildings weatherization energy service"
-  uehcb                   "buildings heating and cooking useful energy"
-  uecwb                   "buildings cooking and water heating useful energy"
-  uescb                   "buildings space cooling useful energy"
-  ueshb                   "buildings space heating useful energy"
-  uealb                   "buildings appliances and light, useful energy"
-  ueswb                   "buildings weatherization"
-  feshh2b                 "buildings space heating hydrogen"
-  fecwb                   "buildings cooking and water heating FE"
-  fecwh2b                 "buildings cooking and water heating hydrogen"
 *** FIXME this should be reworked with Robert when revising the transport module
   entrp                   "transport energy use"
   fetf                    "transport fuel use"
@@ -635,10 +587,6 @@ all_in   "all inputs and outputs of the CES function"
   fedie_frgt_sm           "short-to-medium distance freight transport, diesel"
   feelt_frgt_sm           "short-to-medium distance freight transport, electricity"
   fedie_frgt_lo           "long distance freight transport, diesel"
-
-  kaphc                   "buildings capital stock insulation"
-  kapsc                   "buildings capital stock space cooling"
-  kapal                   "buildings capital stock appliances and light"
 
   !! production factors of industry with subsectors
   ue_industry             "useful energy of industry sector"
@@ -707,24 +655,6 @@ all_teEs                 "energy service technologies"
     te_esgat_frgt_sm "short-to-medium distance freight transport CES node"
     te_esdie_frgt_lo "long distance freight transport CES node"
 
-*** Buildings module
-    te_ueshheb  "buildings space heating district heat"
-    te_ueshhob  "buildings space heating liquids"
-    te_ueshsob  "buildings space heating solids"
-    te_ueshstb  "buildings space heating traditional solids"
-    te_ueshgab  "buildings space heating district heat"
-    te_ueshh2b  "buildings space heating hydrogen"
-    te_ueshelb  "buildings space heating electricity resistance"
-    te_ueshhpb  "buildings space heating electricity heat pump"
-
-    te_uecwhob  "buildings cooking and water heating liquids"
-    te_uecwsob  "buildings cooking and water heating solids"
-    te_uecwstb  "buildings cooking and water heating traditional solids"
-    te_uecwgab  "buildings cooking and water heating gas"
-    te_uecwheb  "buildings cooking and water heating district heat"
-    te_uecwh2b  "buildings cooking and water heating hydrogen"
-    te_uecwelb  "buildings cooking and water heating electricity"
-    te_uecwhpb  "buildings cooking and water heating heat pump"
 /
 
 teEs(all_teEs)           "ES technologies which are actually used (to be filled by module realizations)."
@@ -1767,8 +1697,6 @@ entyFe(all_enty)      "final energy types."
 /
 
 esty(all_esty)      "energy service types. Have to be added by modules."
-//
-buildMoBio(all_esty) "modern biomass in buildings"
 //
 entyUe(all_enty)      "Useful energy types"
 //

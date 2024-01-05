@@ -17,7 +17,6 @@ cesParameter   "parameters of the CES functions and for calibration"
   rho               "CES function elasticity parameter rho = 1 - (1 / sigma)"
   xi                "baseyear income share of CES function input/output"
   offset_quantity   "quantity offset for the CES tree if the quantity is null"
-  compl_coef        "coefficients for the perfectly complementary factors"
 /
 
 regi_dyn29(all_regi)   "dynamic region set for compatibility with testOneRegi"

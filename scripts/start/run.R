@@ -71,7 +71,7 @@ run <- function() {
 
 
           tmp = system("gdxdump fulldata.gdx symb=pm_cesdata", intern = TRUE)[-(1:2)] %>%
-            grep("(quantity|price|eff|effgr|xi|rho|offset_quantity|compl_coef)", x = ., value = TRUE)
+            grep("(quantity|price|eff|effgr|xi|rho|offset_quantity)", x = ., value = TRUE)
           tmp = tmp %>% grep(expr_ces_in,x = ., value = T)
 
           tmp %>%

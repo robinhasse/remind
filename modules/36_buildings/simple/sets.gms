@@ -64,8 +64,7 @@ Sets
   feelb . (feelcb,feelhpb,feelrhb)
   /
   
-  ue_dyn36(all_in)  "useful energy items"
-  //
+
 
  ppfen_MkupCost36(all_in)  "primary production factors in buildings on which CES mark-up cost can be levied that are counted as expenses in the macroeconomic budget equation"
   /

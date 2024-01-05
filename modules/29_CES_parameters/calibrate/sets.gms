@@ -17,7 +17,6 @@ cesParameter   "parameters of the CES functions and for calibration"
   rho               "CES function elasticity parameter rho = 1 - (1 / sigma)"
   xi                "baseyear income share of CES function input/output"
   offset_quantity   "quantity offset for the CES tree if the quantity is null"
-  compl_coef        "coefficients for the perfectly complementary factors"
 /
 
 regi_dyn29(all_regi)   "dynamic region set for compatibility with testOneRegi"
@@ -69,16 +68,7 @@ t_29(ttot)     "time steps considered in the calibration"
 pf_eff_target_dyn29(all_in)    "production factors with efficiency target"    / /
 pf_quan_target_dyn29(all_in)   "production factors with quantity target"      / /
 
-capUnitType  "Type of technological data: for investments or for the standing capital"
-/
-  cap   "estimate for the standing capital (with some depreciation)"
-  inv   "estimate for new investments (without depreciation)"
-/
 
-index_Nr "index to differentiate data points with identical characteristics"
-/
-  0 * 62
-/
 
 eff_scale_par   "parameters for scaling certain efficiencies during calibration"
 /

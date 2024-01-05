@@ -52,8 +52,7 @@ ppf_29("lab") = YES;
 
 *** Useful energy
 ue_29(all_in) 
-  = ue_dyn36(all_in)                               !! Buildings
-  + industry_ue_calibration_target_dyn37(all_in)   !! Industry
+  = industry_ue_calibration_target_dyn37(all_in)   !! Industry
 ;
   
 *** Fill the sets that need special treatment of efficiencies beyond calib
@@ -143,16 +142,6 @@ ipf_beyond_last(out) = YES;
 
 *** End of Sets calculation
 
-Parameter
-f29_esdemand(tall,all_regi,all_demScen,all_in)       "energy service demand"
-/
-$ondelim
-$include "./modules/29_CES_parameters/calibrate/input/f29_esdemand.cs4r"
-$offdelim
-/
-;
-*** change million m2.C to trillion m2.C
-p29_esdemand(t,regi,in) = f29_esdemand(t,regi,"%cm_demScen%",in)/sm_mega_2_non;
 
 Parameter
 $ifthen.transpmodule "%transport%" == "edge_esm"
@@ -173,14 +162,6 @@ $offdelim
 ;
 p29_efficiency_growth(t,regi,in) = f29_efficiency_growth(t,regi,"%cm_demScen%",in);
 
-Parameter
-f29_capitalUnitProjections "Capital cost per unit of consumed energy and final energy per unit of useful energy (or UE per unit of ES) used to calibrate some elasticities of substitution"
-/
-$ondelim
-$include "./modules/29_CES_parameters/calibrate/input/f29_capitalUnitProjections.cs4r"
-$offdelim
-/
-;
 
 parameter
 f29_capitalQuantity(tall,all_regi,all_demScen,all_in)          "capital quantities"
@@ -250,27 +231,12 @@ pm_fedemand(t,regi,"feh2i")$(t.val ge 2010) = 0.01*pm_fedemand(t,regi,"fegai");
 $endif.indst_H2_penetration
 
 display pm_fedemand;
-
-*** Attribute technological data to p29_capitalUnitProjections according to putty-clay
- p29_capitalUnitProjections(all_regi,all_in,index_Nr) =  f29_capitalUnitProjections(all_regi,all_in,index_Nr,"cap") ;
-loop (cesOut2cesIn(out,in)$ppfKap(in),
-loop (cesOut2cesIn2(out,in2),
-p29_capitalUnitProjections(all_regi,all_in,index_Nr)$(p29_capitalUnitProjections(all_regi,all_in,index_Nr)
-                                                      AND (sameAs(all_in,out) OR sameAs(all_in,in2))
-                                                    )                                                      
-                                        = p29_capitalUnitProjections(all_regi,all_in,index_Nr)$(p29_capitalUnitProjections(all_regi,in,index_Nr) ge p29_capitalUnitProjections(all_regi,in,"0")
-                                        );
-);
-);                                                        
+                                                       
   
 *** Change PPP for MER.
 p29_capitalQuantity(tall,all_regi,all_in) 
  = p29_capitalQuantity(tall,all_regi,all_in) 
  * pm_shPPPMER(all_regi);
-
-p29_capitalUnitProjections(all_regi,all_in,index_Nr)$ppfKap(all_in) 
-  = p29_capitalUnitProjections(all_regi,all_in,index_Nr) 
-  * pm_shPPPMER(all_regi);
 
 *** Subtract "special" capital stocks from gross economy capital stock
 p29_capitalQuantity(tall,all_regi,"kap") 
@@ -291,8 +257,6 @@ $else.industry_subsectors
     = sm_EJ_2_TWa * pm_fedemand(tall,all_regi,all_in);
 $endif.industry_subsectors
 
-*** Change $/kWh to Trillion$/TWa;
-p29_capitalUnitProjections(all_regi,all_in,index_Nr)$ppfKap(all_in) =  p29_capitalUnitProjections(all_regi,all_in,index_Nr) * sm_TWa_2_kWh / sm_trillion_2_non;
 
 
 *** Load CES parameters from the last run
@@ -317,9 +281,6 @@ pm_cesdata(t,regi,"inco","quantity") = pm_gdp(t,regi);
 pm_cesdata(t,regi,"lab","quantity") = pm_lab(t,regi);
 *** Load exogenous FE trajectories
 pm_cesdata(t,regi,in,"quantity")$(pm_fedemand(t,regi,in)) = pm_fedemand(t,regi,in);
-
-*** Load exogenous ES trajectories
-pm_cesdata(t,regi,in,"quantity") $p29_esdemand(t,regi,in) = p29_esdemand(t,regi,in);
 
 *** Load exogenous transport demand - required for the EDGE transport module
 $ifthen.edgesm %transport% ==  "edge_esm"

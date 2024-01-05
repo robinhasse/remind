@@ -45,7 +45,6 @@ qm_budget(ttot,regi)$( ttot.val ge cm_startyear ) ..
   + sum(tradeCap, vm_costTradeCap(ttot,regi,tradeCap))
   + vm_taxrev(ttot,regi)$(ttot.val ge 2010)
   + vm_costAdjNash(ttot,regi)
-  + sum(in_enerSerAdj(in), v01_enerSerAdj(ttot,regi,in))
   + sum(teEs, vm_esCapInv(ttot,regi,teEs))
   + vm_costpollution(ttot,regi)
   + pm_totLUcosts(ttot,regi)
@@ -111,15 +110,6 @@ q01_cesIO(t,regi,ipf(out))..
   )
 ;
 
-***---------------------------------------------------------------------------
-*' Constraints for perfect complements in the CES tree
-***---------------------------------------------------------------------------
-q01_prodCompl(t,regi,in,in2) $ (complements_ref(in,in2) ) ..
-    vm_cesIO(t,regi,in) 
-  =e= 
-    pm_cesdata(t,regi,in2,"compl_coef")
-  * vm_cesIO(t,regi,in2)
-;
 
 
 
